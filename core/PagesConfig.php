@@ -46,8 +46,24 @@ class PagesConfig {
                 array('href' => '/static/js/profile.js'),
             ),
             'blocks' => array(
-                 'content' => array(
+                'content' => array(
                     array('name' => 'user', 'action' => 'show', 'mode' => 'profile'),
+                ),
+            ),
+        ),
+        // Редактирование профиля
+        'profile_edit' => array(
+            'title' => 'Редактирование профиля',
+            'layout' => 'standart',
+            'css' => array(
+                array('href' => '/static/css/profile.css'),
+            ),
+            'js' => array(
+                array('href' => '/static/js/profile.js'),
+            ),
+            'blocks' => array(
+                'content' => array(
+                    array('name' => 'user', 'action' => 'edit', 'mode' => 'profile'),
                 ),
             ),
         ),

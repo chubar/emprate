@@ -18,6 +18,13 @@ class module_user extends module {
                         break;
                 }
                 break;
+            case 'edit':
+                switch ($mode) {
+                    case 'profile':
+                        $data = $this->showProfile();
+                        break;
+                }
+                break;
         }
 
         return $data;

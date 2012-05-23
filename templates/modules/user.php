@@ -13,6 +13,11 @@ function tp_user_show_login($data) {
             <div class="plank">
                 <a href="/profile">профиль <?php echo $data['first_name']; ?> <?php echo $data['last_name']; ?></a>
                 <a href="/logout">выход</a>
+                <?php if ($data['has_pic']) { ?>
+                    <div class="photo">
+                        <img src="<?php echo $data['pic_small']; ?>"></img>
+                    </div>
+                <?php } ?>
             </div>
             <?php
         } else {
@@ -94,9 +99,42 @@ function tp_user_show_profile($data) {
     ?>
     <div class="profile">
         <h2>Профиль пользователя</h2>
-        <?php if($data['id'] == CurrentUser::$id){?>
-        <a href="/profile/edit">редактировать</a>
-        <?php }?>
+        <?php if ($data['has_pic']) { ?>
+            <div class="photo">
+                <img src="<?php echo $data['pic_big']; ?>"></img>
+            </div>
+        <?php } ?>
+        <?php if ($data['id'] == CurrentUser::$id) { ?>
+            <a href="/profile/edit">редактировать</a>
+        <?php } ?>
+    </div>
+    <?php
+}
+
+/**
+ * редактирование своего профиля
+ */
+function tp_user_edit_profile($data) {
+    ?>
+    <div class="edit_profile">
+        <form method="post" enctype="multipart/form-data">
+            <input name="writemodule" value="user" type="hidden" />
+            <input name="action" value="edit" type="hidden" />
+            <span>Фотография</span>
+            <?php if ($data['has_pic']) { ?>
+                <div class="photo">
+                    <img src="<?php echo $data['pic_big']; ?>"></img>
+                </div>
+            <?php } ?>
+            <div class="photo"></div>
+            <div>
+                <input type="file" name="photo" />
+            </div>
+            <span>Трудовой стаж</span>
+            <div>
+                <input type="submit" value="сохранить" />
+            </div>
+        </form>
     </div>
     <?php
 }

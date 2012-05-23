@@ -14,6 +14,10 @@ class CurrentUser {
                 'last_name' => self::$data['last_name'],
                 'middle_name' => self::$data['middle_name'],
                 'authorized' => true,
+                'has_pic' => self::$data['has_pic'],
+                'pic_small' => '/static/upload/userphoto/' . (self::$id % 50) . '/' . self::$id . '_small.jpg',
+                'pic_normal' => '/static/upload/userphoto/' . (self::$id % 50) . '/' . self::$id . '_normal.jpg',
+                'pic_big' => '/static/upload/userphoto/' . (self::$id % 50) . '/' . self::$id . '_big.jpg',
                 'id' => self::$data['id']
             );
         }else

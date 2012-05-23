@@ -91,8 +91,11 @@ class Site {
 
     function getOpenedModule($name) {
         $name = 'module_' . $name;
-        if (!isset(self::$openedModules[$name]))
+        if (!isset(self::$openedModules[$name])) {
+            Log::timing('module new ' . $name);
             self::$openedModules[$name] = new $name;
+            Log::timing('module new ' . $name);
+        }
         return self::$openedModules[$name];
     }
 

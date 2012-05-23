@@ -4,6 +4,7 @@ class Config {
 
     private static $config = array(
         'www_folder' => '',
+        'static_path' => '/home/emprate/static/',
         'www_domain' => 'emprate.ru',
         'templates_root' => 'templates',
         'dbname' => 'emprate',
