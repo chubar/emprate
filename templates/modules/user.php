@@ -96,6 +96,8 @@ function tp_user_show_logout($data) {
  * профиль пользователя
  */
 function tp_user_show_profile($data) {
+    if (!isset($data['id']))
+        return;
     ?>
     <div class="profile">
         <h2>Профиль пользователя</h2>
@@ -115,6 +117,8 @@ function tp_user_show_profile($data) {
  * редактирование своего профиля
  */
 function tp_user_edit_profile($data) {
+    if (!isset($data['id']))
+        return;
     ?>
     <div class="edit_profile">
         <form method="post" enctype="multipart/form-data">

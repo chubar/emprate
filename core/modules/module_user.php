@@ -48,13 +48,14 @@ class module_user extends module {
 
         if (!$user_id) {
             if ($user_nick) {
-                $id = 111; // todo
+                $user_id = Database::sql2single('SELECT `id` FROM `user` WHERE `nickname`=' . Database::escape($user_nick));
                 if (!$id)
                     return false;
             }else
                 return false;
         }
-        return CurrentUser::getInfo();
+        $user = Users::getInstance()->get($user_id);
+        return $user->getInfo();
     }
 
 }

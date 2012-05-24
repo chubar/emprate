@@ -35,8 +35,24 @@ class PagesConfig {
             'blocks' => array(
             ),
         ),
-        // Профиль
+        // Мой Профиль
         'my_profile' => array(
+            'title' => 'Профиль пользователя',
+            'layout' => 'standart',
+            'css' => array(
+                array('href' => '/static/css/profile.css'),
+            ),
+            'js' => array(
+                array('href' => '/static/js/profile.js'),
+            ),
+            'blocks' => array(
+                'content' => array(
+                    array('name' => 'user', 'action' => 'show', 'mode' => 'profile'),
+                ),
+            ),
+        ),
+        // Профиль
+        'profile' => array(
             'title' => 'Профиль пользователя',
             'layout' => 'standart',
             'css' => array(
